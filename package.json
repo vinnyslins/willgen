@@ -1,0 +1,15 @@
+{
+  "name": "willgen",
+  "version": "1.0.0",
+  "description": "A CLI that generates Will Smith memes",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index",
+    "start": "node src/index"
+  },
+  "author": "Vinnys Lins",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^1.19.3"
+  }
+}
