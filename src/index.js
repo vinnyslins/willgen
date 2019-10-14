@@ -1,6 +1,7 @@
 const fs = require('fs')
 const jimp = require('jimp')
 const commander = require('commander')
+const uuid = require('uuid/v1')
 
 const SIZE = 256
 const QUALITY = 15
@@ -35,7 +36,7 @@ const generateImage = async text => {
   const image = await loadImage(imageUrl)
   await addText(image, text)
 
-  image.write(`${__dirname}/dist/will-smith.jpg`)
+  image.write(`${__dirname}/dist/will-smith-${uuid()}.jpg`)
 }
 
 (async () => {
