@@ -1,5 +1,6 @@
 const fs = require('fs')
 const jimp = require('jimp')
+const commander = require('commander')
 
 const SIZE = 256
 const QUALITY = 15
@@ -39,7 +40,17 @@ const generateImage = async text => {
 
 (async () => {
   try {
-    await generateImage('gostosa')
+    commander
+      .version('0.0.1')
+      .option('-t --text [value]', 'Meme text')
+      .parse(process.argv)
+
+    const text = commander.text
+    if (!text) {
+      throw new Error('Enter the text with the -t parameter')
+    }
+
+    await generateImage(text)
   } catch (error) {
     console.error(error.message)
   }

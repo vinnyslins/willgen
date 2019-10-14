@@ -13,6 +13,7 @@
     "nodemon": "^1.19.3"
   },
   "dependencies": {
+    "commander": "^3.0.2",
     "jimp": "^0.8.4"
   }
 }
