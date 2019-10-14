@@ -1,7 +1,8 @@
+const fs = require('fs')
 const jimp = require('jimp')
 
 const SIZE = 256
-const QUALITY = 10
+const QUALITY = 15
 const MAX_LENGTH = 16
 const TEXT_HEIGHT = 192
 
@@ -28,11 +29,16 @@ const addText = async (image, text) => {
 
 (async () => {
   try {
-    const image = await getImage('./will-smith.jpg')
+    const rawData = fs.readFileSync(`${__dirname}/images.json`)
+    const images = JSON.parse(rawData)
+
+    const imageUrl = images[Math.floor(Math.random() * (28 + 1))]
+
+    const image = await getImage(imageUrl)
     await addText(image, 'gostosa')
 
-    image.write('new-will-smith.jpg');
+    image.write('new-will-smith.jpg')
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 })()
